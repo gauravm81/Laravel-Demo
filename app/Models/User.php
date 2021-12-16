@@ -41,4 +41,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    public function isAdmin()
+    {
+        return $this->admin; // this looks for an admin column in your users table
+    }
+    
+    public function phoneNiceFormat()
+    {
+        $phone = '';
+
+        if (strlen($this->phone) == 10) {
+            $phone = '(' . substr($this->phone, 0, 3) . ') ' . substr($this->phone, 3, 3) . '-' . substr($this->phone, 6, 4);
+        }
+
+        if ($phone)
+            return $phone;
+        else
+            return $this->phone;
+    }
+
 }
