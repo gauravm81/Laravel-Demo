@@ -14,6 +14,8 @@ class UpdateUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
+			$table->String('last_name')->after('id');
+			$table->String('first_name')->after('id');
 			$table->String('uuid',50)->after('id');
         });
     }
@@ -27,6 +29,8 @@ class UpdateUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('uuid');
+            $table->dropColumn('last_name');
+            $table->dropColumn('first_name');
         });
     }
 }

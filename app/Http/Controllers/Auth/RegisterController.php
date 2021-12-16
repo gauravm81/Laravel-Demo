@@ -3,11 +3,17 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+
+use Auth;
+use Redirect;
+use Session;
+use Str;
 
 class RegisterController extends Controller
 {
@@ -30,14 +36,17 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
+    
+    protected $request;
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Request $request)
     {
+		$this->request = $request;
         $this->middleware('guest');
     }
 
@@ -49,8 +58,10 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+		
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -63,11 +74,25 @@ class RegisterController extends Controller
      * @return \App\Models\User
      */
     protected function create(array $data)
-    {
+    { 
         return User::create([
-            'name' => $data['name'],
+			'uuid' => Str::uuid(),
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'name' => $data['first_name'].' '.$data['last_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        
+        $user->refresh();
+        
+        session()->put('email_address', $user->email);
+        return $user;
+    }
+    
+    public function redirectTo()
+    {
+        $url = '/';
+        return $url;
     }
 }

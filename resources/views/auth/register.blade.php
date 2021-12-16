@@ -20,7 +20,7 @@
               <span class="text-red-500">* </span>First Name
             </label>
             <div class="mt-1 rounded-md shadow-sm">
-              <input aria-label="First Name" id="first_name" name="first_name" type="text" required class="appearance-none block w-full px-3 py-4 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('first_name') is-invalid @enderror" value="{{ old('first_name') }}" placeholder="First Name" autofocus />
+              <input aria-label="First Name" id="first_name" name="first_name" type="text" required class="appearance-none block w-full px-3 py-3 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('first_name') is-invalid @enderror" value="{{ old('first_name') }}" placeholder="First Name" autofocus />
                 @error('first_name')
                     <span class="invalid-feedback text-red-700 text-sm font-semibold" role="alert">{{ $message }}</span>
                 @enderror
@@ -31,7 +31,7 @@
               <span class="text-red-500">* </span>Last Name
             </label>
             <div class="mt-1 rounded-md shadow-sm">
-              <input aria-label="Last Name" id="last_name" name="last_name" type="text" required class="appearance-none block w-full px-3 py-4 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('last_name') is-invalid @enderror" value="{{ old('last_name') }}" placeholder="Last Name" autofocus />
+              <input aria-label="Last Name" id="last_name" name="last_name" type="text" required class="appearance-none block w-full px-3 py-3 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('last_name') is-invalid @enderror" value="{{ old('last_name') }}" placeholder="Last Name" autofocus />
                 @error('last_name')
                     <span class="invalid-feedback text-red-700 text-sm font-semibold" role="alert">{{ $message }}</span>
                 @enderror
@@ -45,7 +45,7 @@
 				<span class="text-red-500">* </span>Email address
 			  </label>
             <div class="mt-1 rounded-md shadow-sm">
-              <input aria-label="Email address" id="email" name="email" type="email" required class="appearance-none block w-full px-3 py-4 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="Email address" autofocus />
+              <input aria-label="Email address" id="email" name="email" type="email" required class="appearance-none block w-full px-3 py-3 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="Email address" autofocus />
                 @error('email')
                     <span class="invalid-feedback text-red-700 text-sm font-semibold" role="alert">{{ $message }}</span>
                 @enderror
@@ -56,7 +56,7 @@
 				<span class="text-red-500">* </span>Phone
 			</label>
             <div class="mt-1 rounded-md shadow-sm">
-              <input aria-label="Email address" id="phone" name="phone" type="text" required class="appearance-none block w-full px-3 py-4 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('email') is-invalid @enderror" value="{{ old('phone') }}" placeholder="Phone" autofocus />
+              <input aria-label="Email address" id="phone" name="phone" type="text" required class="appearance-none block w-full px-3 py-3 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('email') is-invalid @enderror" value="{{ old('phone') }}" placeholder="Phone" autofocus />
                 @error('phone')
                     <span class="invalid-feedback text-red-700 text-sm font-semibold" role="alert">{{ $message }}</span>
                 @enderror
@@ -69,7 +69,7 @@
             <span class="text-red-500">* </span>Password
           </label>
           <div class="mt-1 rounded-md shadow-sm">
-            <input aria-label="Password" id="password" name="password" type="password" required class="appearance-none block w-full px-3 py-4 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('password') is-invalid @enderror" placeholder="Password" autocomplete="current-password" />
+            <input aria-label="Password" id="password" name="password" type="password" required class="appearance-none block w-full px-3 py-3 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('password') is-invalid @enderror" placeholder="Password" autocomplete="current-password" />
                 @error('password')
                     <span class="invalid-feedback text-red-700 text-sm font-semibold" role="alert">{{ $message }}</span>
                 @enderror
@@ -81,7 +81,7 @@
             <span class="text-red-500">* </span>Confirm Password
           </label>
           <div class="mt-1 rounded-md shadow-sm">
-            <input aria-label="Password Confirmation" id="password_confirm" name="password_confirmation" type="password" required class="appearance-none block w-full px-3 py-4 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+            <input aria-label="Password Confirmation" id="password_confirm" name="password_confirmation" type="password" required class="appearance-none block w-full px-3 py-3 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                 @error('password_confirmation')
                     <span class="invalid-feedback text-red-700 text-sm font-semibold" role="alert">{{ $message }}</span>
                 @enderror
@@ -91,8 +91,8 @@
 
         <div class="mt-6">
           <span class="block w-full rounded-md shadow-sm">
-            <button type="submit" class="w-full flex justify-center px-6 py-4 border border-transparent font-medium text-lg rounded-md text-white bg-teal-500 hover:bg-teal-400 focus:outline-none focus:border-teal-600 focus:shadow-outline-teal active:bg-teal-600 transition duration-150 ease-in-out">
-              Start Free Trial
+            <button type="submit" class="w-full flex justify-center px-6 py-3 border border-transparent font-medium text-lg rounded-md text-white bg-teal-500 hover:bg-teal-400 focus:outline-none focus:border-teal-600 focus:shadow-outline-teal active:bg-teal-600 transition duration-150 ease-in-out">
+              Continue
             </button>
           </span>
         </div>
