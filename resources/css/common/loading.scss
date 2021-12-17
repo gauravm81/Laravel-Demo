@@ -1,0 +1,15 @@
+.loading {
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #0094A3;
+    animation: spin 1s linear infinite;
+
+    .center {
+		position: relative;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+	}
+}

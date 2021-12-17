@@ -9,6 +9,32 @@
         <div class="h-0 flex-1 flex flex-col overflow-y-auto">
             <!-- Sidebar component, swap this element with another sidebar if you like -->
             <nav class="flex-1 px-2 py-4 bg-gray-800">
+				
+				  @if ( Route::currentRouteName() == 'agent.dashboard')
+					<a href="{{route('agent.dashboard')}}" class="group flex items-center px-2 py-2 text-sm leading-5 font-medium text-white rounded-md bg-gray-900 focus:outline-none focus:bg-gray-700 transition ease-in-out duration-150">
+				  @else
+					<a href="{{route('agent.dashboard')}}" class="group flex items-center px-2 py-2 text-sm leading-5 font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+				  @endif
+						Get Started
+					</a>
+					
+					@if ( Request::is('account/*') )
+				  <a href="#nav_AccountSettings" class="left-nav-dropdown-toggle relative left-nav-dropdown-opened mt-1 group flex items-center px-2 py-2 text-sm leading-5 font-medium text-white rounded-md bg-gray-900 focus:outline-none focus:bg-gray-700 transition ease-in-out duration-150">
+				@else
+				  <a href="#nav_AccountSettings" class="left-nav-dropdown-toggle relative mt-1 group flex items-center px-2 py-2 text-sm leading-5 font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150">
+				@endif
+					Account Settings
+					<svg class="float-right ml-2 h-5 w-5 absolute right-3" fill="currentColor" viewBox="0 0 20 20">
+					  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+					</svg>
+				  </a>
+				
+				  <ul id="nav_AccountSettings" class="left-nav-dropdown pl-12">
+					<li class="py-1"><a href="{{route('agent.profile')}}" class="text-sm {{Route::currentRouteName() == 'agent.profile' ? 'text-white' : 'text-gray-400'}} hover:text-white">My Info</a></li>
+					<li class="py-1"><a href="{{route('agent.settings')}}" class="text-sm {{Route::currentRouteName() == 'agent.settings' ? 'text-white' : 'text-gray-400'}} hover:text-white">Settings</a></li>
+				  </ul>
+				
+				
                 @if (Auth::check() && Auth::user()->isAdmin() )
                     <div class="mt-8 pt-8 border-t border-gray-600">
                         <h3 class="px-3 text-xs leading-4 font-semibold text-gray-100 uppercase tracking-wider">

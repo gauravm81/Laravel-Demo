@@ -1,0 +1,15 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+// Calendar
+@import "fonts.scss";
+@import "calendar/core.css";
+@import "calendar/daygrid.css";
+@import "calendar/timegrid";
+@import "calendar/list.css";
+@import "calendar/boostable.scss";
+@import "common.scss";
+@import '~jquery-datetimepicker/jquery.datetimepicker.css';

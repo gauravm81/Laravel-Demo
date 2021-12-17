@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+	@include('shared.components.scripts-head')
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -21,6 +21,7 @@
 </head>
 <body>
    @include('shared.components.scripts-body-top')
+@include('shared.components.all-page-loading')
 
 
 <div class="h-screen flex overflow-hidden bg-gray-100" x-data="{ sidebarOpen: false }" @keydown.window.escape="sidebarOpen = false">
@@ -79,7 +80,7 @@
             </div>
         </div>
         @endguest
-        <main class="flex-1 relative overflow-y-auto py-6 focus:outline-none overflow-hidden max-w-full w-full" tabindex="0" x-data x-init="$el.focus()">
+        <main class="flex-1 relative overflow-y-auto py-6 focus:outline-none overflow-hidden max-w-full w-full bg-white" tabindex="0" x-data x-init="$el.focus()">
 
 
             @yield('content')
@@ -87,7 +88,12 @@
     </div>
 </div>
 
-
+@yield('modals')
+@include('shared.components.alert.modal.success')
+@include('shared.components.alert.modal.error')
+@include('shared.components.alert.modal.warning')
+@include('shared.components.alert.modal.confirm-delete')
+@include('shared.components.alert.modal.confirm')
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.0.1/dist/alpine.js" defer></script>
     <script src="{{ asset('js/app.js') }}"></script>
@@ -97,6 +103,6 @@
     @endif
 
     @stack('scripts')
-
+	@include('shared.components.scripts-footer')
 </body>
 </html>

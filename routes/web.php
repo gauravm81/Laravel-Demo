@@ -21,6 +21,18 @@ Auth::routes(['verify' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::name('agent.')->namespace('Agent')->middleware(['auth', 'verified', 'user'])->group(function() {
+   
+    // Dashboard
+    Route::get('/dashboard', [App\Http\Controllers\Agent\DashboardController::class,'index'])->name('dashboard');
+    
+    // Account
+    Route::get('/account/profile', [App\Http\Controllers\Agent\AccountController::class,'profile'])->name('profile');
+    Route::post('/account/profile', [App\Http\Controllers\Agent\AccountController::class,'saveProfile'])->name('profile.update');
+    Route::get('/account/settings', [App\Http\Controllers\Agent\AccountController::class,'settings'])->name('settings');
+    Route::post('/account/settings', [App\Http\Controllers\Agent\AccountController::class,'saveSettings'])->name('settings.update');
+});
+
 Route::name('admin.')->namespace('Admin')->prefix('admin')->middleware(['auth', 'user', 'admin'])->group(function() {
 	
 	// Users

@@ -7,18 +7,24 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Traits\FeaturedImage;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+	
+	use FeaturedImage;
 
+    public $resource_name = 'user';
+    public $featured_image_db_name = 'avatar';
+    
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
-        'uuid', 'first_name', 'last_name', 'name', 'email', 'password', 'phone', 'avatar'
+        'uuid', 'first_name', 'last_name', 'name', 'email', 'password', 'phone', 'avatar', 'facebook', 'twitter', 'linkedin', 'website', 'street', 'suite', 'city', 'state', 'zipcode', 'phone', 'office_contact', 'about'
     ];
 
     /**

@@ -22,15 +22,11 @@ trait FeaturedImage
         $filename = $this->resource_name . '-' . Str::slug($name) . '-' . Str::random(8) . '.' . $file->getClientOriginalExtension();
         $path = Storage::disk('public')->putFileAs($this->resource_name, $file, $filename);
         
-		if($post_image == 'post_image') {
-			foreach (static::sizePostList() as $size) {
-				$this->createAlternateImageSize($size['width'], $size['height'], $file, $path, $size['crop']);
-			}
-		} else {
-			foreach (static::sizeList() as $size) {
-				$this->createAlternateImageSize($size['width'], $size['height'], $file, $path, $size['crop']);
-			}
-		}	
+		
+		foreach (static::sizeList() as $size) {
+			$this->createAlternateImageSize($size['width'], $size['height'], $file, $path, $size['crop']);
+		}
+			
 
         if (isset($this->featured_image_db_name)) {
             $this->attributes[$this->featured_image_db_name] = $path;
@@ -44,7 +40,7 @@ trait FeaturedImage
     public function getThumbnailPath($size = '400x400')
     {
         if (isset($this->avatar)) {
-            return str_replace('.', '-'.$size.'.', $this->avatar);
+            return  str_replace('.', '-'.$size.'.', $this->avatar);
         }
     }
     
@@ -98,7 +94,8 @@ trait FeaturedImage
 			['width' => 66,  'height' => 66, 	'crop' => true],
 			['width' => 79,  'height' => 79, 	'crop' => true],
 			['width' => 90,  'height' => 90, 	'crop' => true],
-            ['width' => 120, 'height' => 120, 	'crop' => true]
+            ['width' => 120, 'height' => 120, 	'crop' => true],
+            ['width' => 180, 'height' => 180, 	'crop' => true]
         ];
     }
     

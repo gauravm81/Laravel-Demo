@@ -62,7 +62,6 @@
                             
                             <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
                                 <a href="{{route('admin.users.view', [$item->uuid])}}" class="text-gray-600 hover:text-teal-900 focus:outline-none focus:underline mr-4">Details</a>
-                                
                             </td>
                         </tr>
                     @endforeach
